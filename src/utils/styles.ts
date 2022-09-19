@@ -6,6 +6,14 @@ type SpaceThemeKeys = keyof typeof theme.space
 // Themeの型
 export type AppTheme = typeof theme
 
+// ブレイクポイント
+const BREAKPOINTS: { [key: string]: string } = {
+  sm: '640px', // 640px以上
+  md: '768px', // 768px以上
+  lg: '1024px', // 1024px以上
+  xl: '1280px', // 1280px以上
+}
+
 export function toPropValue<T> (propKey: string, prop?: Responsive<T>, theme?: AppTheme){
   if(!prop) return undefined;
   const result = []
@@ -20,10 +28,21 @@ export function toPropValue<T> (propKey: string, prop?: Responsive<T>, theme?: A
             theme,
           )};`,
         )
+      } else if (
+        responsiveKey === 'sm' ||
+        responsiveKey === 'md' ||
+        responsiveKey === 'lg' ||
+        responsiveKey === 'xl'
+      ){
+        // メディアクエリでのスタイル
+        const breakpoint = BREAKPOINTS[responsiveKey]
+        const style = `${propKey}: ${toThemeValueIfNeeded(propKey, prop[responsiveKey], theme)};`
+        result.push(`@media screen and (min-width: ${breakpoint}) {${style}}`)
       }
+      result.join("\n")
     }
   }
-  return result
+  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)};`
 }
 
 const SPACE_KEYS = new Set([
