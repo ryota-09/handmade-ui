@@ -2,9 +2,13 @@ import { theme } from 'themes'
 import type { ResponsiveProp, Responsive } from 'types/styles'
 
 type SpaceThemeKeys = keyof typeof theme.space
+type ColorThemeKeys = keyof typeof theme.colors
 
 // Themeの型
 export type AppTheme = typeof theme
+
+export type Space = SpaceThemeKeys | (string & {})
+export type Color = ColorThemeKeys | (string & {})
 
 // ブレイクポイント
 const BREAKPOINTS: { [key: string]: string } = {
