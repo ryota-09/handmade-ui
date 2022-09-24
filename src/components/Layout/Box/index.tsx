@@ -3,8 +3,18 @@ import type { Responsive } from 'types/styles'
 import { toPropValue, Color, Space } from 'utils/styles'
 
 export type BoxProps = {
+  /**
+   * テキストカラー
+   */
   color?: Responsive<Color>
+  /**
+   * 背景色
+   */
   backgroundColor?: Responsive<Color>
+  /**
+   * コンテンツの幅
+   * @default なし
+   */
   width?: Responsive<string>
   height?: Responsive<string>
   minWidth?: Responsive<string>
