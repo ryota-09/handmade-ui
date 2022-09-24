@@ -45,3 +45,4 @@ const Box = styled.div<BoxProps>`
   ${(props) => toPropValue('padding-bottom', props.paddingBottom, props.theme)}
   ${(props) => toPropValue('padding-right', props.paddingRight, props.theme)}
 `
+export default Box

@@ -1,3 +1,4 @@
+import Box from 'components/Layout/Box'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         <button onClick={() => toPropValue('margin', { base: 1, sm: 2 }, theme)}>ボタン</button>
+        <Box margin={{ base: 1, xl: 4 }} theme={theme} >aaa</Box>
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
