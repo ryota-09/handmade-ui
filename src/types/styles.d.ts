@@ -7,6 +7,7 @@ export type ResponsiveProp<T> = {
 }
 
 export type Responsive<T> = T | ResponsiveProp<T>
+
 const keys = [ "name", "test" ] as const 
 
 type Test = {
@@ -34,3 +35,9 @@ type MyPick<Type, Keys extends keyof Type> = {
   [key in Keys]: Type[Keys]
 }
 
+type Join<T, U > = T extends [infer A, ...infer B] ? `${A}${U}${Join<B, U>}`: T
+const T = Join<["foo", "bar"], "1">
+
+type StrNum = string | number
+type Join<T, U extends StrNum> = T extends [infer A extends StrNum, ...infer B extends StrNum[]] ? `${A}${U}${Join<B, U>}`: T
+const S = Join<["foo", "bar"], ":">
