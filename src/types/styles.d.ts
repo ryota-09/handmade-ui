@@ -19,11 +19,13 @@ type ContentDistoribution = "space-around" | "space-between" | "space-evenly" | 
 
 type CSSPropatyGlobals = "-moz-initial" | "inherit" | "initial" | "revert" | "unset"
 
-export type CSSPropatyAlignItems = CSSPropatyGlobals | SelfPosition | "baseline" | "stretch"
+export type CSSPropertyAlignItems = CSSPropatyGlobals | SelfPosition | "baseline" | "stretch"
 
 export type CSSPropertyAlignContent = CSSPropatyGlobals | ContentDistoribution | "center" | "end" | "flex-end" | "flex-start" | "start" | "baseline" | "normal"
 
 export type CSSPropertyJustifyContent = CSSPropatyGlobals | ContentDistoribution | ContentPosition | "left" | "normal" | "right" 
+
+export type CSSPropertyJustifyItems = CSSPropertyGlobals | SelfPosition | 'baseline' | 'left' | 'legacy' | 'normal' | 'right' | 'stretch'
 
 export type CSSPropertyFlexWrap = CSSPropatyGlobals | "nowrap" | "wrap" | "wrap-reverse"
 
