@@ -75,6 +75,7 @@ export function toPropValue<T>(
       }
     }
     // NOTE: 改行で一つの文字列にしている(https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+    console.log(result.join("\n"))
     return result.join('\n')
   }
 

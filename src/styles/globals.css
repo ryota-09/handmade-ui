@@ -15,6 +15,33 @@ a {
   box-sizing: border-box;
 }
 
+span {
+  display: block;
+}
+
+.accordion__section {
+  color: red;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+  display: block;
+}
+
+.accordion__content {
+  display: none;
+}
+
+.accordion__content.active {
+  display: inline;
+}
+
+.next::after {
+  content: "...";
+}
+
+.next.active::after {
+  content: "";
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
